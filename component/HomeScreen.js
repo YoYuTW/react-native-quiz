@@ -1,9 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { View, Text } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
 import { MainTitleUpdate } from '../navigator/Drawer';
+import { View, Text } from 'react-native';
+import { Menu, Box, Pressable, HamburgerIcon } from 'native-base';
+
+const greets = ["Hello", "你好", "こんにちは", "bonjour"];
 
 export default function HomeScreen({ navigation, route }) {
   const handleTitle = useContext(MainTitleUpdate);
+
+  const [greetingPhase, setGreetingPhase] = useState('Hello')
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('tabPress', () => {
@@ -11,11 +16,21 @@ export default function HomeScreen({ navigation, route }) {
     });
 
     return unsubscribe
-  }, [navigation, route]);
+  }, [navigation, route]);  
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
+    <Box h="80%" w="90%" alignItems="flex-end">
+      <Menu w="190" trigger={triggerProps => {
+        return <Pressable accessibilityLabel="More options menu" {...triggerProps}>
+                <HamburgerIcon />
+              </Pressable>;
+      }}>
+        {greets.map((greet, id) => (
+          <Menu.ItemOption key={id} onPress={() => setGreetingPhase(greet)}>{greet}</Menu.ItemOption> 
+        ))}   
+      </Menu>
+      <Text>{greetingPhase}</Text> 
+    </Box>      
+    
   );
 }

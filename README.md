@@ -23,7 +23,9 @@
 
 ## Demo
 <div style="display: flex;gap: 5px; flex-wrap: wrap">
-  <img src="./demo/Home.png" height="300" />
+  <img src="./demo/Home_default.png" height="300" />
+  <img src="./demo/Home_onChanging.png" height="300" />
+  <img src="./demo/Home_new.png" height="300" />
   <img src="./demo/Data.png" height="300" />
   <img src="./demo/Setting.png" height="300" />
   <img src="./demo/Drawer.png" height="300" />
@@ -36,4 +38,5 @@
 - [React Native](https://reactnative.dev/docs/getting-started)
 - [React Navigation](https://reactnavigation.org/docs/getting-started)
 - [Expo vector-icons](https://icons.expo.fyi/)
+- [NativeBase](https://nativebase.io/)
 

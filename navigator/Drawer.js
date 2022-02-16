@@ -10,6 +10,7 @@ export default function DrawerScreen() {
   const [mainTitle, setMainTitle] = useState("Home");
 
   return (
+
     <MainTitleUpdate.Provider value={setMainTitle}>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Main" component={TabScreen} options={{ title: mainTitle }}/>
